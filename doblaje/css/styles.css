@@ -1,0 +1,923 @@
+
+body {
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 17px;
+    font-weight: 300;
+    overflow-x: hidden;
+    color: white;
+    background-color: #2C353C;
+}
+
+a { 
+    transition: all 0.3s ease; 
+    text-decoration: none;
+}
+
+ul { padding: 0; }
+a:hover { text-decoration: none; }
+button:focus { outline: none; }
+p { line-height: 1.9; }
+.tm-logo { margin-right: 20px; }
+.tm-slogan { font-size: 0.8rem; }
+
+/* Navigation */
+.navbar-toggler {
+    padding: 8px 15px;
+    border: 0;
+    border-radius: 0;
+    transform: skewX(-15deg);
+    background-color: rgba(0,0,0,0.5);
+    color: white;    
+}
+
+.navbar-toggler i { transform: skewX(15deg); }
+
+.navbar-expand-lg {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link { padding: 0; }
+
+.navbar-expand-lg .navbar-nav .tm-nav-link {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: white;    
+    padding-bottom: 30px;    
+}
+
+.nav-item { margin-right: 60px; }
+
+.nav-item:last-child { margin-right: 0; }
+
+.nav-item.active .tm-nav-link,
+.nav-item:hover .tm-nav-link {
+    color: rgb(165, 136, 66);
+}
+
+/* Page Background */
+.tm-bg {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    z-index: -1000;
+}
+
+.tm-bg-left,
+.tm-bg-right {
+    position: relative;
+    width: 50%;
+    height: 100%;
+}
+
+.tm-bg-right { background-color: rgba(0,0,0,0.5); }
+
+.tm-bg-left {
+    border-right: 120px solid rgba(0,0,0,0.5);
+    border-top: 1200px solid transparent;
+}
+
+
+.tm-bg-controls-wrapper {
+    display: inline-block;
+    margin-left: -150px;
+}
+
+.tm-bg-control {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background-color: rgba(255,255,255,0.5);
+    margin: 6px;
+    cursor: pointer;
+}
+
+.tm-bg-control.active,
+.tm-bg-control:hover {
+    background-color: white;
+}
+
+.tm-container {
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;  
+}
+
+.tm-row { display: flex; }
+
+.tm-col-left {
+    width: 50%;
+    height: 100%;
+    padding-left: 40px;  
+    padding-right: 40px;
+}
+
+.tm-col-right {
+    width: 50%;
+    height: 100%;
+    padding-left: 70px;
+    padding-right: 20px;
+}
+
+.tm-content {
+    max-width: 750px;
+    margin-top: 50px;
+    padding-right: 20px;
+}
+
+.tm-about { max-width: 750px; }
+
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 10px;
+}
+  
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: rgba(255,255,255,.8);
+    box-shadow: 0 0 1px rgba(255,255,255,.8);
+}
+
+.tm-content-title { font-size: 1.5rem; }
+hr { border-top: 1px solid white; }
+
+.btn {
+    padding: 10px 25px;
+    border-radius: 0;
+}
+
+.btn-big {
+    padding: 9px 40px;
+    font-size: 1.2rem;;
+}
+
+.btn-primary {
+    background-color: white;
+    color: black;
+    border: 0;
+}
+
+.btn-primary:hover {
+    background-color: rgb(147, 146, 143);
+    color: black;
+}
+
+.tm-site-footer {
+    padding: 40px 0 20px;
+    max-width: 750px;
+    font-size: 0.95rem;
+}
+
+.tm-col-footer { padding-left: 0; }
+.tm-text-link { color: white; }
+
+.tm-text-link:hover,
+.tm-text-link:focus {
+    color: #9CC;
+}
+
+/* Service */ 
+.tm-service-text { max-width: 750px; }
+.tm-service-img { margin-right: 25px; }
+.tm-service-img-r { margin-left: 25px; }
+
+/* Contact */
+.form-control,
+textarea {    
+    color: white;
+    background-color: transparent;
+    background-clip: padding-box;
+    border: none;
+    border-bottom: 1px solid #999A9B;
+    border-radius: 0;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    padding: 10px 0;
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.form-control:focus {
+    color: white;
+    background-color: transparent;    
+    box-shadow: none;
+    border-color: #9CC;
+    outline: none;
+}
+
+.mb-85 { margin-bottom: 85px; }
+.tm-contact-main { max-width: 750px; }
+
+.tm-contact {
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-control::-webkit-input-placeholder { color: white; } /* Edge */  
+.form-control:-ms-input-placeholder { color: white; } /* Internet Explorer 10-11 */  
+.form-control::placeholder { color: white; }
+
+@media (max-width: 1200px) {
+    .nav-item { margin-right: 30px; }
+
+    .tm-page-right {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+@media (max-width: 992px) {    
+    .tm-nav {
+        position: absolute;
+        background: rgba(0, 0, 0, 0.8);
+        color: white;
+        top: 44px;
+        right: 4px;
+    }
+
+    .navbar-expand-lg .navbar-nav .tm-nav-link {
+        color: white;
+        font-size: 1.1rem;
+        padding: 13px 20px;
+    }
+
+    .nav-item { margin-right: 0; }
+
+    .nav-item.active .tm-nav-link,
+    .nav-item:hover .tm-nav-link {
+        color: #9CC;
+    }
+
+    .tm-content { margin-top: 20px; }
+    .tm-site-footer { padding-top: 40px; }
+    .tm-col-left { width: 40%; }
+
+    .tm-col-right {
+        width: 60%;
+        padding-left: 100px;
+        padding-right: 30px;
+    }
+    
+    .tm-col-footer { padding-left: 0; }
+}
+
+@media (max-width: 768px) {
+    .tm-row { flex-direction: column; }
+
+    .tm-col-left,
+    .tm-col-right,
+    .tm-bg-left,
+    .tm-bg-right {
+        width: 100%;
+    }
+
+    #tm-main-nav {
+        position: fixed;
+        top: 50px;
+        right: 40px;
+        padding-bottom: 0;
+    }  
+    
+    .tm-bg { flex-direction: column; }
+
+    .tm-bg-left {
+        height: 200px;        
+        border-right: 300px solid rgba(0,0,0,0.5) !important;
+        border-top: 100vh solid transparent;
+    }
+
+    .tm-bg-right { height: calc(100% - 200px); }
+
+    .tm-bg-controls-wrapper {
+        margin-left: 0;
+        margin-top: 50px;
+    }
+
+    .tm-content {
+        max-height: none;
+        margin-top: 40px;
+    }
+
+    .tm-col-right {
+        padding-top: 40px;
+        padding-left: 30px;
+    }
+
+    .tm-col-footer {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+@media (max-width: 460px) {
+    .tm-logo { margin-right: 15px; }
+    .tm-sitename { font-size: 1.8rem; }
+    .tm-slogon { font-size: 0.8rem; }
+}
+
+@media (max-width: 450px), (min-width: 768px) and (max-width: 830px), (min-width: 992px) and (max-width: 1040px) {
+    .tm-service-media { flex-direction: column; }
+    .tm-service-media-img-l { flex-direction: column-reverse; }
+    .tm-service-text { margin-top: 20px; }
+    .tm-service-img { margin-right: 0; }
+    .tm-service-img-r { margin-left: 0; }
+}
+
+/* === AUDIO PLAYER (AISLADO) === */
+
+.audio-column .content_main {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 40px 0;
+	font-family: "Noto Sans", sans-serif;
+	margin-top: 36px;
+}
+
+/* Cover */
+.audio-column #content-cover {
+	width: 340px;
+	height: 240px;
+	border-radius: 10%;
+	margin-bottom: 2em;
+	background: transparent;
+	box-shadow:
+		-7px -7px 20px rgba(102, 102, 102, 0.9),
+		7px 7px 20px rgba(0,0,0,0.15);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* Imagen */
+.audio-column .cover,
+.audio-column .play {
+	width: 100%;
+	height: 100%;
+	border-radius: 5%;
+	object-fit: cover;
+}
+
+.audio-column .cover {
+	animation-play-state: paused;
+}
+
+.audio-column .play {
+	animation-play-state: running;
+}
+
+@keyframes spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+/* Botones */
+.audio-column .custom-btn {
+	width: 64px;
+	height: 64px;
+	border-radius: 50%;
+	border: none;
+	background:rgba(241, 240, 240, 0.648);
+	cursor: pointer;
+	box-shadow:
+		-6px -6px 16px rgba(121, 121, 121, 0.9),
+		6px 6px 16px rgba(0,0,0,0.15);
+	transition: all 0.3s ease;
+}
+
+.audio-column .custom-btn:active {
+	box-shadow:
+		inset -4px -4px 8px rgba(150, 150, 150, 0.9),
+		inset 4px 4px 8px rgba(0,0,0,0.15);
+}
+
+.audio-column .icons,
+.audio-column #icon {
+	font-size: 1.4em;
+	color: #2a2a2a;
+}
+
+/* Barra de progreso */
+.audio-column #progress-bar {
+	width: 300px;
+	height: 8px;
+	border-radius: 8px;
+	margin: 1em 0 1.5em;
+	background: #ffffff;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.audio-column #progress {
+	height: 100%;
+	width: 0%;
+	background: linear-gradient(90deg, #9d9d9d, #181409);
+}
+
+/* Tiempo */
+.audio-column .audio-time {
+	width: 300px;
+	display: flex;
+	justify-content: space-between;
+	font-size: 0.85em;
+	color: #777;
+	margin-bottom: 1.5em;
+}
+
+/* Controles */
+.audio-column .controls {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 240px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+	.audio-column #content-cover {
+		width: 200px;
+		height: 200px;
+	}
+
+	.audio-column #progress-bar,
+	.audio-column .audio-time {
+		width: 240px;
+	}
+}
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+  width: 100%;
+  padding: 30px 0;
+  text-align: center;
+  font-size: 20px;
+  letter-spacing: 1px;
+  color: #000000;
+  background: transparent;
+}
+
+.footer p {
+  margin: -50px;
+}
+/* ===== HOME BUTTON ===== */
+.home-btn {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  z-index: 9999; /* CLAVE */
+}
+
+.home-btn img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+	.media-grid {
+		grid-template-columns: 1fr;
+		gap: 60px;
+	}
+
+	.media-grid::after {
+		display: none;
+	}
+
+	.video-column,
+	.audio-column {
+		align-items: center;
+		text-align: center;
+	}
+}
+/* ===== FIX FONDO DIAGONAL (NO SE MUEVE CON EL CONTENIDO) ===== */
+
+.tm-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1000;
+}
+.tm-container {
+    min-height: 100vh;
+    height: auto;
+}
+/* ===== AJUSTE VISUAL PARA PÁGINAS LARGAS ===== */
+
+.icon-about {
+    margin-right: 25px;   /* separa el icono del texto */
+    margin-top: 6px;      /* baja un poco el icono para alinearlo con el párrafo */
+    color: #fff;          /* opcional */
+}
+.tm-about .media {
+    align-items: flex-start;   /* asegura que todos comiencen arriba */
+}
+
+.tm-about .media-body p {
+    margin-top: 6px;           /* alinea el texto con el icono */
+    line-height: 1.7;          /* mejora la lectura */
+    max-width: 750px;          /* hace que todos los párrafos tengan el mismo ancho */
+}
+.tm-about .media {
+    display: flex;
+    align-items: flex-start; /* fuerza que icono y texto comiencen arriba */
+}
+
+/* Columna fija para iconos + más separación */
+.tm-about .media i {
+    width: 60px;          /* antes 50px → más espacio */
+    text-align: center;
+    margin-right: 2.25rem;   /* antes 20px → separación más amplia */
+    margin-top: 6px;
+    flex-shrink: 0;
+}
+
+
+.tm-about .media-body p {
+    margin-top: 0; /* asegura que todos los párrafos comiencen en la misma línea */
+    max-width: 750px; /* opcional: hace que todos tengan el mismo ancho */
+    line-height: 1.7;
+}
+/* ===== VIDEO YOUTUBE RESPONSIVE ===== */
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 750px;   /* mismo ancho que tm-content */
+    aspect-ratio: 16 / 9;
+    margin: 0 auto;
+    border-radius: 2%;
+
+
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 2%;
+
+}
+/* ===== VIDEO ALINEADO A LA DERECHA ===== */
+.tm-video-right {
+    margin-left: auto;   /* empuja el bloque a la derecha */
+    text-align: right;    /* mantiene el texto legible */
+    margin-right: 200px;
+    
+}
+
+.tm-video-right .video-wrapper {
+    margin-left: auto;   /* asegura que el iframe también se vaya a la derecha */
+    box-shadow:
+		-6px -6px 16px rgba(121, 121, 121, 0.9),
+		6px 6px 16px rgba(0,0,0,0.15);
+}
+/* ===== VIDEO MODAL ===== */
+.video-thumb {
+    position: relative;
+    max-width: 750px;
+    cursor: pointer;
+}
+
+.video-thumb img {
+    width: 100%;
+    border-radius: 6px;
+    display: block;
+}
+
+.video-play-icon {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: white;
+    background: rgba(0,0,0,0.35);
+    transition: background 0.3s ease;
+}
+
+.video-thumb:hover .video-play-icon {
+    background: rgba(0,0,0,0.55);
+}
+
+/* Overlay oscuro */
+#video-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.85);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+}
+
+/* Contenedor del video */
+.video-modal {
+    width: 80%;
+    max-width: 750px;
+}
+
+#video-overlay iframe {
+    width: 100%;
+    height: 500px;
+    border-radius: 10px;
+}
+
+/* Cerrar al hacer clic fuera */
+#video-overlay.close-area {
+    cursor: pointer;
+}
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 750px;
+}
+
+.video-wrapper iframe {
+    width: 100%;
+    height: 400px;
+    border-radius: 10px;
+}
+
+/* Capa clickeable encima del iframe */
+.video-click-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 10;
+}
+/* Columna fija para iconos */
+.icon-col {
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-right: 25px;
+    flex-shrink: 0;
+}
+
+.tm-about .media {
+    display: flex;
+    align-items: flex-start;
+}
+
+.tm-about .media-body p {
+    margin: 0;
+    line-height: 1.7;
+    max-width: 750px;
+}
+
+/* Video wrapper y overlay */
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 750px;
+}
+
+.video-wrapper iframe {
+    width: 100%;
+    height: 400px;
+    border-radius: 10px;
+}
+
+.video-click-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 10;
+}
+
+/* Overlay oscuro */
+#video-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.85);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+}
+
+.video-modal {
+    width: 80%;
+    max-width: 750px;
+}
+
+#video-overlay iframe {
+    width: 100%;
+    height: 500px;
+    border-radius: 10px;
+}
+/* Reducir margen derecho en About */
+.tm-col-right {
+    width: 50%;
+    height: auto !important;
+}
+/* Subir el contenido de About y Services sin afectar el menú */
+.tm-col-right main {
+    transform: translateY(-40px); /* ajusta a tu gusto */
+}
+
+
+
+/* Permitir que el contenido use más espacio */
+.tm-content {
+    max-width: 750px !important; /* antes 660px */
+}
+
+/* About más ancho */
+.tm-about {
+    max-width: 750px !important; /* antes 525px */
+}
+/* Igualar ancho de About y Services al resto */
+.tm-about,
+.tm-service-text {
+    max-width: 750px !important;
+}
+.tm-content {
+    max-width: 750px !important;
+}
+/* Fuerza a que la columna izquierda siempre ocupe su 50% */
+.tm-col-left {
+    width: 50%;
+    min-height: auto !important; /* evita que colapse cuando está vacía */
+}
+/* ===== CENTRAR TEXTO DEL REPRODUCTOR ===== */
+
+.tm-audio h2,
+.tm-audio p {
+    text-align: center;
+}
+/* ===== CENTRAR TEXTO DEL VIDEO YOUTUBE ===== */
+
+.video-block p {
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* ===== FORZAR CENTRADO TEXTO VIDEO YOUTUBE ===== */
+
+.video-block .apple-card-text h3,
+.video-block .apple-card-text p {
+    text-align: center !important;
+}
+.video-block .apple-card-text {
+    background: rgba(255,0,0,0.2);
+}
+
+
+/* ===== ALINEACIÓN CORRECTA VIDEO + AUDIO ===== */
+
+.tm-col-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.tm-content {
+    width: 100%;
+    max-width: 660px;
+}
+
+/* Video wrapper alineado con el resto */
+.tm-video .video-wrapper {
+    width: 100%;
+    max-width: 660px;
+}
+/* ===== ALINEACIÓN CORRECTA VIDEO + AUDIO ===== */
+
+.tm-col-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.tm-content {
+    width: 100%;
+    max-width: 660px;
+}
+
+/* Video wrapper alineado con el resto */
+.tm-video .video-wrapper {
+    width: 100%;
+    max-width: 660px;
+}
+
+
+/* ===== VIDEO – ALINEACIÓN DEFINITIVA ===== */
+
+.tm-col-right .tm-video {
+    max-width: 660px;
+}
+
+.tm-col-right .tm-video h2,
+.tm-col-right .tm-video p {
+    text-align: center !important;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* ===== SERVICES – IMÁGENES MÁS PEQUEÑAS ===== */
+
+.tm-service-img,
+.tm-service-img-r {
+    width: 30%;          /* ⬅️ reduce al 50% */
+    height: auto;        /* mantiene proporción */
+    
+}
+/* ===== SERVICES – SOMBRA ESTILO REPRODUCTOR ===== */
+
+.tm-service-img,
+.tm-service-img-r {
+    width: 30%;
+    height: auto;
+
+    box-shadow:
+        -6px -6px 16px rgba(255,255,255,0.25),
+         6px  6px 16px rgba(0,0,0,0.35);
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+/* ===== FIX LÍNEAS NEGRAS EN IMÁGENES ===== */
+
+.tm-service-img,
+.tm-service-img-r {
+    display: block;          /* elimina artefactos inline */
+    border: none;
+    outline: none;
+
+    background-color: #2C353C; /* mismo fondo que el body */
+    box-sizing: border-box;
+
+    /* evita sub-pixel bleed */
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+/* ===== CONTACTO – INPUTS TRANSPARENTES ===== */
+
+.tm-contact input,
+.tm-contact textarea {
+    background-color: transparent !important;
+    color: #ffffff !important;
+    border: none;
+    border-bottom: 1px solid rgba(255,255,255,0.6);
+    border-radius: 0;
+}
+
+/* Placeholder en blanco suave */
+.tm-contact input::placeholder,
+.tm-contact textarea::placeholder {
+    color: rgba(255,255,255,0.6);
+}
+
+/* Estado focus (cuando escribes) */
+.tm-contact input:focus,
+.tm-contact textarea:focus {
+    background-color: transparent !important;
+    color: #ffffff;
+    outline: none;
+    box-shadow: none;
+    border-bottom-color: #9CC; /* mismo acento que el template */
+}
+/* ===== FIX CHROME AUTOFILL (CONTACTO) ===== */
+
+.tm-contact input:-webkit-autofill,
+.tm-contact input:-webkit-autofill:hover,
+.tm-contact input:-webkit-autofill:focus,
+.tm-contact textarea:-webkit-autofill {
+    -webkit-text-fill-color: #ffffff !important;
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+    box-shadow: 0 0 0px 1000px transparent inset !important;
+    transition: background-color 9999s ease-in-out 0s;
+}

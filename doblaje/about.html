@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Gabriel | Perfil</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="fontawesome/css/all.min.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+
+<!-- BOTÓN HOME -->
+<div class="home-btn" onclick="window.location.href='../../index.html'">
+    <img src="../imagenes/home.svg" alt="Home">
+</div>
+
+<div class="tm-container">
+
+    <!-- HEADER + NAV -->
+    <div class="tm-row pt-4">
+        <div class="tm-col-left">
+            <div class="tm-site-header media">
+                <div class="media-body">
+                    <h1 class="tm-sitename text-uppercase">Doblaje</h1>
+                    <p class="tm-slogon">la voz que necesitas</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tm-col-right">
+            <nav class="navbar navbar-expand-lg" id="tm-main-nav">
+                <button class="navbar-toggler toggler-example mr-0 ml-auto" type="button" 
+                    data-toggle="collapse" data-target="#navbar-nav" 
+                    aria-controls="navbar-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span><i class="fas fa-bars"></i></span>
+                </button>
+
+                <div class="collapse navbar-collapse tm-nav" id="navbar-nav">
+                    <ul class="navbar-nav text-uppercase">
+                        <li class="nav-item">
+                            <a class="nav-link tm-nav-link" href="index.html">Gabriel</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link tm-nav-link" href="about.html">Perfil <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link tm-nav-link" href="services.html">Servicios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link tm-nav-link" href="contact.html">Contacto</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!-- CONTENIDO -->
+    <div class="tm-row">
+        <div class="tm-col-left"></div>
+
+        <main class="tm-col-right">
+
+            <!-- PERFIL -->
+            <section class="tm-content tm-about">
+                <h2 class="mb-5 tm-content-title">Perfil de Doblaje</h2>
+                <hr class="mb-4">
+
+                <div class="media my-3">
+                    <div class="icon-col">
+                        <i class="fas fa-theater-masks fa-3x"></i>
+                    </div>
+                    <div class="media-body">
+                        <p>Mi enfoque parte siempre de la interpretación. Cada voz tiene intención,
+                        ritmo y emoción, y mi objetivo es que cada frase suene creíble y natural,
+                        independientemente del estilo.</p>
+                    </div>
+                </div>
+
+                <div class="media my-3">
+                    <div class="icon-col">
+                        <i class="fas fa-sliders-h fa-3x"></i>
+                    </div>
+                    <div class="media-body">
+                        <p>Trabajo la voz con flexibilidad, explorando distintos registros, tonos y
+                        matices para adaptarme a narración, locución o personajes, según lo requiera
+                        el proyecto.</p>
+                    </div>
+                </div>
+
+                <div class="media my-3">
+                    <div class="icon-col">
+                        <i class="fas fa-microphone-alt fa-3x"></i>
+                    </div>
+                    <div class="media-body">
+                        <p>Me interesa especialmente el equilibrio entre técnica y emoción, cuidando
+                        dicción, respiración y claridad, sin perder naturalidad ni presencia sonora.</p>
+                    </div>
+                </div>
+
+                <div class="media my-3">
+                    <div class="icon-col">
+                        <i class="fas fa-headphones-alt fa-3x"></i>
+                    </div>
+                    <div class="media-body">
+                        <p>Esta demo está pensada como una base de trabajo: un punto de partida desde
+                        el cual construir una voz alineada con la identidad y necesidades de cada
+                        cliente.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- AUDIO -->
+            <section class="tm-content tm-audio mt-5">
+                <h2 class="mb-4">Demo de voz</h2>
+                <p class="mb-4">
+                    Esta demo reúne distintos registros vocales y estilos de interpretación,
+                    pensados para mostrar versatilidad, claridad y presencia sonora.
+                </p>
+
+                <div class="audio-column">
+                    <div class="content_main">
+
+                        <div id="content-cover">
+                            <img class="cover" src="../imagenes/fondo10.jpg" alt="Demo Gabriel León">
+                        </div>
+
+                        <audio id="audio" preload="metadata">
+                            <source src="demos/gabriel_voz.mp3" type="audio/mpeg">
+                        </audio>
+
+                        <div id="progress-bar">
+                            <div id="progress"></div>
+                        </div>
+
+                        <div class="audio-time">
+                            <span id="current-time">0:00</span>
+                            <span id="duration">0:00</span>
+                        </div>
+
+                        <div class="controls">
+                            <button class="custom-btn btn-replay" id="replay">
+                                <span class="icons fas fa-undo"></span>
+                            </button>
+
+                            <button class="custom-btn btn-play" id="play">
+                                <span id="icon" class="icons fas fa-play"></span>
+                            </button>
+
+                            <button class="custom-btn btn-stop" id="stop">
+                                <span class="icons fas fa-stop"></span>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- VIDEO (DENTRO DEL MAIN) -->
+                <section class="tm-content mt-5 tm-video">
+                <h2 class="mb-4">Referencia en video</h2>
+                <p class="mb-4">
+                    Ejemplo visual que acompaña la demo de voz, enfocado en ritmo,
+                    intención y presencia interpretativa.
+                </p>
+
+                <div class="video-wrapper">
+                    <div class="video-click-layer"></div>
+                    <iframe 
+                        src="https://www.youtube.com/embed/yfPtHz-5bzY"
+                        title="Demo de doblaje Gabriel León"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="tm-row">
+        <div class="tm-col-left text-center">
+            <ul class="tm-bg-controls-wrapper">
+                <li class="tm-bg-control active" data-id="0"></li>
+                <li class="tm-bg-control" data-id="1"></li>
+                <li class="tm-bg-control" data-id="2"></li>
+            </ul>
+        </div>
+
+        <div class="tm-col-right tm-col-footer">
+            <footer class="tm-site-footer text-right">
+                <p class="mb-0">
+                    © 2026 Gabriel León. Todos los derechos reservados | WEB Diseñada por Gabriel Leon.
+                </p>
+            </footer>
+        </div>
+    </div>
+
+</div>
+
+<!-- FONDO DIAGONAL -->
+<div class="tm-bg">
+    <div class="tm-bg-left"></div>
+    <div class="tm-bg-right"></div>
+</div>
+
+<!-- OVERLAY VIDEO -->
+<div id="video-overlay">
+    <div class="video-modal">
+        <iframe 
+            id="video-frame"
+            src=""
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+        </iframe>
+    </div>
+</div>
+
+<!-- SCRIPTS -->
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.backstretch.min.js"></script>
+<script src="js/templatemo-script.js"></script>
+<script src="js/player.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const clickLayer = document.querySelector(".video-click-layer");
+    const overlay = document.getElementById("video-overlay");
+    const frame = document.getElementById("video-frame");
+
+    clickLayer.addEventListener("click", function() {
+        frame.src = "https://www.youtube.com/embed/yfPtHz-5bzY?autoplay=1";
+        overlay.style.display = "flex";
+    });
+
+    overlay.addEventListener("click", function(e) {
+        if (e.target === overlay) {
+            overlay.style.display = "none";
+            frame.src = "";
+        }
+    });
+});
+</script>
+
+</body>
+</html>
