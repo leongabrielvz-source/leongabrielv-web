@@ -1,6 +1,6 @@
 // === FONDO AUTOMÁTICO (SE MANTIENE IGUAL) ===
 const initBg = (autoplay = true) => {
-    const bgImgsNames = ['diagoona-bg-1.jpg', 'diagoona-bg-2.jpg', 'diagoona-bg-3.jpg'];
+    const bgImgsNames = ['diagoona-bg-1.JPG', 'diagoona-bg-2.JPG', 'diagoona-bg-3.JPG'];
     const bgImgs = bgImgsNames.map(img => "img/" + img);
 
     $.backstretch(bgImgs, {duration: 4000, fade: 500});
