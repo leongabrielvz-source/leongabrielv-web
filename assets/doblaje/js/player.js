@@ -20,19 +20,20 @@ document.addEventListener("DOMContentLoaded", () => {
   let isPlaying = false;
 
   // === PLAY / PAUSE ===
-  playBtn.addEventListener("click", () => {
-    if (!isPlaying) {
-      audio.play();
-      cover.classList.replace("cover", "play");
-      icon.classList.replace("fa-play", "fa-pause");
-      isPlaying = true;
-    } else {
-      audio.pause();
-      cover.classList.replace("play", "cover");
-      icon.classList.replace("fa-pause", "fa-play");
-      isPlaying = false;
-    }
-  });
+playBtn.addEventListener("click", () => {
+  if (!isPlaying) {
+    audio.play();
+    cover.classList.add("playing");
+    icon.classList.replace("fa-play", "fa-pause");
+    isPlaying = true;
+  } else {
+    audio.pause();
+    cover.classList.remove("playing");
+    icon.classList.replace("fa-pause", "fa-play");
+    isPlaying = false;
+  }
+});
+
 
   // === STOP ===
   stopBtn.addEventListener("click", stopAudio);
@@ -62,10 +63,11 @@ document.addEventListener("DOMContentLoaded", () => {
     audio.currentTime = 0;
     isPlaying = false;
     icon.classList.replace("fa-pause", "fa-play");
-    cover.classList.replace("play", "cover");
+    cover.classList.remove("playing");
     progress.style.width = "0%";
     currentTimeEl.textContent = "0:00";
   }
+
 
   function formatTime(seconds) {
     const min = Math.floor(seconds / 60);
