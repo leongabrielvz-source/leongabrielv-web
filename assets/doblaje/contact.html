@@ -62,8 +62,18 @@
                     <section class="tm-content tm-contact">
                         <h2 class="mb-4 tm-content-title">Contactame</h2>
                         <p class="mb-85">¿Tienes un proyecto de doblaje, locución o narración?<br>
-              Cuéntame qué necesitas y vemos juntos cómo darle voz.</p>
-                        <form id="contact-form" action="" method="POST">
+                            Cuéntame qué necesitas y vemos juntos cómo darle voz.</p>
+                        <form
+                        id="contact-form"
+                        action="https://formsubmit.co/contacto@leongabrielv.com"
+                        method="POST"
+                        >
+                            <input type="hidden" name="_subject" value="Nuevo mensaje desde la web de Doblaje">
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_template" value="table">
+                            <input type="hidden" name="_next" value="https://www.leongabrielv.com/assets/doblaje/contact.html">
+
+
                             <div class="form-group mb-4">
                                 <input type="text" name="name" class="form-control" placeholder="Nombre" required="" />
                             </div>
