@@ -618,7 +618,7 @@ body {
   font-size: 1.5rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #090606;
+  color: #ffffff;
   margin-bottom: 0.5rem;
 }
 
@@ -662,13 +662,13 @@ body {
 }
 
 .btn-primary:hover {
-  background: #000;
+  background: #9e9c9c;
   transform: translateY(-2px);
 }
 
 .btn-secondary {
   background: transparent;
-  color: #555;
+  color: #ffffff;
   border: 1px solid #ccc;
   padding: 0.9rem 1.6rem;
   border-radius: 2rem;
@@ -680,8 +680,8 @@ body {
 }
 
 .btn-secondary:hover {
-  border-color: #111;
-  color: #111;
+  border-color: #9d9b9b;
+  color: #918f8f;
 }
 
 /* RESPONSIVE */
@@ -729,7 +729,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #111;
+  color: #ffffff;
   font-size: 1.2rem;
   transition: all 0.3s ease;
 }

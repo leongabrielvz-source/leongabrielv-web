@@ -495,10 +495,14 @@ textarea {
   height: auto;
   display: block;
 }
+.dark .home-btn {
+    color: white;
+}
+
 
 
 /* ===== RESPONSIVE ===== */
-@media (max-width: 900px) {
+@media (max-width: 768px) {
 	.media-grid {
 		grid-template-columns: 1fr;
 		gap: 60px;
