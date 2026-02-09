@@ -12,7 +12,7 @@
     <link href="css/styles.css" rel="stylesheet" />
 
 </head>
-<body>
+<body data-page="index">
 
 <!-- BOTÓN HOME -->
 <div class="home-btn" onclick="window.location.href='../../index.html'">
@@ -23,6 +23,58 @@
               stroke-linejoin="round"/>
     </svg>
 </div>
+				<!-- BOTÓN HAMBURGUESA -->
+						<button
+						type="button"
+						class="mobile-menu-btn"
+						aria-label="Abrir menú">
+						<span></span>
+						<span></span>
+						<span></span>
+						</button>
+
+						<!-- MENU -->
+                        <nav class="mobile-menu" id="mobileMenu">
+
+                        <!-- 🌍 NAVEGACIÓN GLOBAL -->
+                        <button type="button" data-link="/index.html">
+                            Inicio
+                        </button>
+
+                        <button type="button" data-link="/assets/musica/index.html">
+                            Música
+                        </button>
+
+                        <button type="button" data-link="/assets/tecnologia/index.html">
+                            Tecnología
+                        </button>
+
+                        <div class="menu-divider"></div>
+
+                        <!-- 🎭 NAVEGACIÓN DOBLAJE -->
+
+                        <button type="button" data-link="/assets/doblaje/about.html" data-page="about">
+                            Perfil
+                        </button>
+
+                        <button type="button" data-link="/assets/doblaje/services.html" data-page="services">
+                            Servicios
+                        </button>
+
+
+                        <button
+                            type="button"
+                            data-link="/assets/doblaje/contact.html"
+                            data-page="contact"
+                            class="menu-contact">
+                            Contacto
+                        </button>
+
+                        </nav>
+
+
+		<!-- OVERLAY -->
+			<div class="mobile-menu-overlay" id="mobileOverlay"></div>
     <div class="tm-container">        
         <div>
             <div class="tm-row pt-4">
@@ -109,6 +161,53 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.backstretch.min.js"></script>
     <script src="js/templatemo-script.js"></script>
+            <script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const btn = document.querySelector(".mobile-menu-btn");
+  const menu = document.getElementById("mobileMenu");
+  const overlay = document.getElementById("mobileOverlay");
+
+  if (!btn || !menu || !overlay) return;
+
+  btn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    menu.classList.toggle("open");
+    overlay.classList.toggle("active");
+  });
+
+  overlay.addEventListener("click", (e) => {
+    e.stopPropagation();
+    menu.classList.remove("open");
+    overlay.classList.remove("active");
+  });
+
+  menu.querySelectorAll("[data-link]").forEach(item => {
+    item.addEventListener("click", () => {
+      menu.classList.remove("open");
+      overlay.classList.remove("active");
+      window.location.href = item.dataset.link;
+    });
+  });
+
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const currentPage = document.body.dataset.page;
+  if (!currentPage) return;
+
+  document
+    .querySelectorAll('.mobile-menu button[data-page]')
+    .forEach(btn => {
+      if (btn.dataset.page === currentPage) {
+        btn.style.display = "none";
+      }
+    });
+
+});
+</script>
 
 </body>
 </html>

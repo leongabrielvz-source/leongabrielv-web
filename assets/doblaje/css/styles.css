@@ -261,14 +261,10 @@ textarea {
     .tm-site-footer { padding-top: 40px; }
     .tm-col-left { width: 40%; }
 
-    .tm-col-right {
-        width: 60%;
-        padding-left: 100px;
-        padding-right: 30px;
     }
     
     .tm-col-footer { padding-left: 0; }
-}
+
 
 @media (max-width: 768px) {
     .tm-row { flex-direction: column; }
@@ -305,11 +301,6 @@ textarea {
     .tm-content {
         max-height: none;
         margin-top: 40px;
-    }
-
-    .tm-col-right {
-        padding-top: 40px;
-        padding-left: 30px;
     }
 
     .tm-col-footer {
@@ -576,18 +567,26 @@ textarea {
     aspect-ratio: 16 / 9;
     margin: 0 auto;
     border-radius: 2%;
-
-
 }
-
 .video-wrapper iframe {
-    position: absolute;
-    inset: 0;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 12px;
+}
+@media (max-width: 768px) {
+
+  .video-wrapper {
     width: 100%;
-    height: 100%;
-    border-radius: 2%;
+    max-width: 100%;
+    aspect-ratio: 16 / 9;
+    margin: 0 auto 24px;
+  }
 
 }
+
 /* ===== VIDEO ALINEADO A LA DERECHA ===== */
 .tm-video-right {
     margin-left: auto;   /* empuja el bloque a la derecha */
@@ -596,7 +595,7 @@ textarea {
     
 }
 
-.tm-video-right .video-wrapper {
+.tm-video-right {
     margin-left: auto;   /* asegura que el iframe también se vaya a la derecha */
     box-shadow:
 		-6px -6px 16px rgba(121, 121, 121, 0.9),
@@ -631,19 +630,6 @@ textarea {
     background: rgba(0,0,0,0.55);
 }
 
-/* Overlay oscuro */
-#video-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0,0,0,0.85);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 99999;
-}
 
 /* Contenedor del video */
 .video-modal {
@@ -651,26 +637,9 @@ textarea {
     max-width: 750px;
 }
 
-#video-overlay iframe {
-    width: 100%;
-    height: 500px;
-    border-radius: 10px;
-}
-
 /* Cerrar al hacer clic fuera */
 #video-overlay.close-area {
     cursor: pointer;
-}
-.video-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 750px;
-}
-
-.video-wrapper iframe {
-    width: 100%;
-    height: 400px;
-    border-radius: 10px;
 }
 
 /* Capa clickeable encima del iframe */
@@ -704,18 +673,6 @@ textarea {
     max-width: 750px;
 }
 
-/* Video wrapper y overlay */
-.video-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 750px;
-}
-
-.video-wrapper iframe {
-    width: 100%;
-    height: 400px;
-    border-radius: 10px;
-}
 
 .video-click-layer {
     position: absolute;
@@ -746,16 +703,6 @@ textarea {
     max-width: 750px;
 }
 
-#video-overlay iframe {
-    width: 100%;
-    height: 500px;
-    border-radius: 10px;
-}
-/* Reducir margen derecho en About */
-.tm-col-right {
-    width: 50%;
-    height: auto !important;
-}
 /* Subir el contenido de About y Services sin afectar el menú */
 .tm-col-right main {
     transform: translateY(-40px); /* ajusta a tu gusto */
@@ -823,7 +770,7 @@ textarea {
 }
 
 /* Video wrapper alineado con el resto */
-.tm-video .video-wrapper {
+.tm-video {
     width: 100%;
     max-width: 660px;
 }
@@ -836,12 +783,6 @@ textarea {
 }
 
 .tm-content {
-    width: 100%;
-    max-width: 660px;
-}
-
-/* Video wrapper alineado con el resto */
-.tm-video .video-wrapper {
     width: 100%;
     max-width: 660px;
 }
@@ -946,4 +887,433 @@ textarea {
   color: #444;
   pointer-events: none;
 }
+
+/* =========================================
+   DOBLAJE – MOBILE MENU (MISMO PATRÓN TECNOLOGÍA)
+========================================= */
+@media (max-width: 768px) {
+
+  /* BOTÓN HAMBURGUESA */
+  .mobile-menu-btn {
+    position: fixed;
+    top: 22px;
+    right: 22px;
+    width: 34px;
+    height: 26px;
+    background: none;
+    border: none;
+    z-index: 10001;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+
+  .mobile-menu-btn span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 2px;
+  }
+
+  /* OVERLAY */
+  .mobile-menu-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(6px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 9999;
+  }
+
+  .mobile-menu-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* MENÚ */
+  .mobile-menu {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    top: 0;
+    right: 0;
+    width: 60vw;              /* ⬅️ mismo ancho que Tecnología */
+    max-width: 260px;
+    height: 100vh;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(10px);
+    padding: 90px 28px;
+    transform: translateX(100%);
+    transition: transform 0.35s ease;
+    z-index: 10000;
+
+  }
+
+  .mobile-menu.open {
+    transform: translateX(0);
+  }
+
+  /* BOTONES DEL MENÚ */
+  .mobile-menu button {
+    all: unset;
+    display: block;
+    width: 100%;
+    margin-bottom: 35px;
+    font-size: 1.0rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: #ffffff;
+    cursor: pointer;
+    opacity: 0.9;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    text-align: center;
+    padding-left: 6px;
+  }
+
+  .mobile-menu button:hover {
+    opacity: 1;
+    transform: translateX(4px);
+  }
+
+  /* CONTACTO DESTACADO */
+  .mobile-menu .menu-contact {
+    margin-top: 32px;
+    font-weight: 600;
+    letter-spacing: 0.32em;
+    position: relative;
+  }
+
+  .mobile-menu .menu-contact::before {
+    content: "";
+    display: block;
+    width: 42px;
+    height: 1px;
+    background: rgba(255,255,255,0.6);
+    margin-bottom: 16px;
+    margin: 0 auto 18px;   /* centrada + más separación */
+
+  }
+}
+/* =========================================
+   DOBLAJE – OCULTAR NAVBAR ORIGINAL EN MOBILE
+========================================= */
+@media (max-width: 768px) {
+
+  #tm-main-nav,
+  .navbar,
+  .navbar-expand-lg {
+    display: none !important;
+  }
+
+}
+
+/* =========================================
+   DOBLAJE – OCULTAR MENU SUPERIOR EN DESKTOP
+========================================= */
+@media (min-width: 769px) {
+
+  .mobile-menu,
+  .mobile-menu-btn,
+  .mobile-menu-overlay {
+    display: none !important;
+  }
+
+}
+@media (max-width: 768px) {
+
+  .menu-divider {
+    width: 50%;
+    height: 1px;
+    background: rgba(255,255,255,0.55);
+    margin: 20px auto;
+    flex-shrink: 0;        /* 👈 MUY IMPORTANTE */
+    display: block;
+  }
+
+}
+/* =========================================
+   DOBLAJE – MOBILE: CONTENIDO CENTRADO
+========================================= */
+@media (max-width: 768px) {
+
+  .tm-content {
+    text-align: center;
+    padding: 0 18px;
+  }
+
+  .tm-content-title {
+    text-align: center;
+    margin-bottom: 18px;
+  }
+
+  .tm-content .btn {
+    display: inline-block;
+    margin: 20px auto 0;
+  }
+
+}
+/* =========================================
+   DOBLAJE – MOBILE: ESPACIADO COMPACTO
+========================================= */
+@media (max-width: 768px) {
+
+  .tm-row {
+    margin-bottom: 20px;
+  }
+
+  .tm-content p {
+    margin-bottom: 16px;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+}
+/* =========================================
+   DOBLAJE – MOBILE: ESPACIADO COMPACTO
+========================================= */
+@media (max-width: 768px) {
+
+  .tm-row {
+    margin-bottom: 20px;
+  }
+
+  .tm-content p {
+    margin-bottom: 16px;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+}
+/* =========================================
+   DOBLAJE – MOBILE: RESET DE LAYOUT
+========================================= */
+@media (max-width: 768px) {
+
+  /* eliminamos columnas del template */
+  .tm-row {
+    display: block !important;
+  }
+
+  .tm-col-left,
+  .tm-col-right {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: none !important;
+  }
+
+}
+
+
+/* =========================================
+   DOBLAJE – TEXTO JUSTIFICADO (MOBILE)
+========================================= */
+@media (max-width: 768px) {
+
+  .tm-content,
+  .tm-content p,
+  .tm-content h2,
+  .tm-content h3,
+  .tm-content h4 {
+    text-align: justify !important;
+    text-justify: inter-word;
+  }
+
+}
+
+/* =========================================
+   DOBLAJE – FOOTER MOBILE (MUY REDUCIDO)
+========================================= */
+@media (max-width: 768px) {
+
+  .tm-site-footer p {
+    font-size: 10px !important;
+    line-height: 1.3;
+    text-align: center;   /* más limpio en mobile */
+    opacity: 0.5;
+    margin: 0;
+    letter-spacing: 0.03em;
+  }
+}
+/* =========================================
+   DOBLAJE – AJUSTE ESPACIADO SUPERIOR MOBILE
+========================================= */
+@media (max-width: 768px) {
+
+  /* Reducimos espacio debajo del header */
+  .tm-site-header {
+    margin-bottom: 0 !important;
+  }
+
+  /* Subimos el bloque principal de contenido */
+  .tm-content {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  /* Ajuste fino de títulos internos */
+  .tm-content-title {
+    margin-top: 0 !important;
+    margin-bottom: 2px !important;
+  }
+
+  /* Primer párrafo más cerca del título */
+  .tm-content p:first-of-type {
+    margin-top: 0 !important;
+  }
+
+}
+/* =========================================
+   HOME BUTTON – BANDA DIFUMINADA FULL WIDTH (MOBILE)
+========================================= */
+@media (max-width: 768px) {
+
+  .home-btn {
+    position: fixed;
+    bottom: 30px;        /* 👈 usa el MISMO valor que ya tienes */
+    left: 30px;
+    z-index: 10001;
+  }
+
+  .home-btn::before {
+    content: "";
+    position: fixed;
+
+    left: 0px;
+    right: 310px;
+
+    /* Altura de la banda */
+    height: 64px;
+
+    /* Posición: alineada con el botón */
+    bottom: 22px;        /* 👈 ajusta fino si hace falta */
+
+    background: rgba(103, 103, 103, 0.25);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+
+    z-index: -1;
+  }
+
+}
+/* =========================================
+   DOBLAJE – CONTACTO – BOTONES COMPACTOS (MOBILE)
+========================================= */
+@media (max-width: 768px) {
+
+  /* Botones Enviar / Borrar */
+  .tm-contact .btn,
+  .tm-contact button,
+  .tm-contact input[type="submit"],
+  .tm-contact input[type="reset"] {
+    font-size: 0.75rem;
+    padding: 8px 16px;
+    letter-spacing: 0.08em;
+    width: auto;
+    min-width: unset;
+  }
+
+  /* Contenedor de botones */
+  .tm-contact .form-group,
+  .tm-contact .tm-contact-form {
+    text-align: center;
+  }
+
+  /* Icono LinkedIn */
+  .tm-contact a i,
+  .tm-contact .fab,
+  .tm-contact .fa-linkedin {
+    font-size: 1.1rem;
+  }
+
+  /* Botón LinkedIn si está envuelto */
+  .tm-contact a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 10px;
+  }
+
+}
+
+/* =========================================
+   DOBLAJE – CONTACTO – LINKEDIN TEXTO CORTO (MOBILE)
+========================================= */
+@media (max-width: 768px) {
+
+  /* Botón LinkedIn: ocultamos texto largo */
+  .tm-contact a[href*="linkedin"] {
+    font-size: 0; /* oculta el texto original */
+  }
+
+  /* Texto corto visible */
+  .tm-contact a[href*="linkedin"]::before {
+    content: "LinkedIn";
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+  }
+
+}
+/* =========================================
+   DOBLAJE – MOBILE: CONTENIDO MÁS A LA IZQUIERDA
+========================================= */
+@media (max-width: 768px) {
+
+  /* Columna derecha: eliminar empuje */
+  .tm-col-right {
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+    margin-left: 0 !important;
+  }
+
+  /* Contenido principal */
+  .tm-content,
+  .tm-about,
+  .tm-service-text,
+  .tm-contact {
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* Formularios y botones */
+  .tm-contact form,
+  .tm-contact .btn,
+  .tm-contact a {
+    margin-left: 0 !important;
+  }
+
+}
+/* =========================================
+   DOBLAJE – CONTACTO MOBILE: BOTONES UNIFORMES
+========================================= */
+@media (max-width: 768px) {
+
+  /* Normalizar TODOS los botones del formulario */
+  .tm-contact .btn,
+  .tm-contact a.btn {
+    padding: 10px 16px !important;
+    font-size: 0.75rem !important;
+    line-height: 1 !important;
+    height: 38px;                /* 👈 CLAVE */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* LinkedIn: quitar cualquier extra oculto */
+  .tm-contact a.btn {
+    white-space: nowrap;
+  }
+
+}
+
+
+
 

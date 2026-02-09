@@ -181,3 +181,198 @@ html,body{
 
 /*.name, .signature, .selectors {
   border: 1px solid red; Solo para inspección visual */
+ 
+/*.------- Imegen del Inicio pada Telefono ----- */
+
+  .home-bg-desktop {
+  background-image: url("../../images/home-desktop.jpg");
+  background-size: cover;
+  background-position: center;
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+}
+.home-bg-mobile {
+  display: none;
+}
+@media (max-width: 768px) {
+
+  .home-bg-desktop {
+    display: none;
+  }
+
+  .home-bg-mobile {
+    display: block;
+    background-image: url("../../images/home-mobile.jpg");
+    background-size: cover;
+    background-position: center top;
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+  }
+
+}
+@media (max-width: 768px) {
+
+  .home-bg-desktop {
+    display: none;
+  }
+
+  .home-bg-mobile {
+    display: block;
+    background-image: url("assets/imagenes/home-mobile.png");
+    background-size: cover;
+    background-position: center top;
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    animation: mobileBlur 1.2s ease forwards;
+    animation-delay: 3s;   /* ⏱️ espera 3 segundos */
+
+  }
+}
+
+/*.------- Texto del Inicio pada Telefono ----- */
+
+/* ===========================
+   HOME MOBILE – OVERRIDE TOTAL
+=========================== */
+
+@media screen and (max-width: 768px) {
+
+  body #header {
+    margin-top: -3rem !important;
+  }
+
+  body #header .content .inner {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+  }
+
+  body #header h1 {
+    font-size: 3.5rem !important;
+    letter-spacing: 0.15rem !important;
+  }
+
+  body #header p {
+    font-size: 0.65rem !important;
+    line-height: 1.25 !important;
+    margin-top: 0.4rem !important;
+  }
+
+  body #header nav ul li a {
+    font-size: 0.6rem !important;
+    height: 2rem !important;
+    line-height: 2rem !important;
+    padding: 0 0.7rem !important;
+    letter-spacing: 0.12rem !important;
+  }
+
+}
+@media (max-width: 768px) {
+
+  /* SUBIMOS TODO EL BLOQUE */
+  .hero-content {
+    position: relative;
+    top: -90px;          /* 👈 sube el contenido */
+    padding: 0 16px;
+  }
+
+  /* NOMBRE */
+  .hero-content .name {
+    font-size: 1.1rem;   /* reducción fuerte */
+    letter-spacing: 0.2rem;
+    margin-bottom: 1.2rem;
+  }
+
+  /* SELECTORES (DOBLAJE | MÚSICA | TECNOLOGÍA) */
+  .selectors {
+    font-size: 0.65rem;
+    gap: 10px;
+  }
+
+  .selector-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.15rem;
+  }
+
+  .divider {
+    font-size: 0.6rem;
+    margin: 0 6px;
+  }
+
+}
+/* ===========================
+   HOME – MOBILE ONLY
+   Column layout sin romper WEB
+=========================== */
+@media (max-width: 768px) {
+
+  .selectors{
+    flex-direction: column;   /* 👈 solo móvil */
+    gap: 44px;
+  }
+
+  .selectors .divider{
+    display: none;            /* 👈 ocultamos | solo móvil */
+  }
+
+  .selector-label{
+    font-size: 1.45rem;
+    letter-spacing: 0.15rem;
+  }
+
+}
+@keyframes mobileBlur {
+  from {
+    filter: blur(0);
+  }
+  to {
+    filter: blur(3px); /* ≈ 10% visual */
+  }
+}
+/* ===========================
+   HOME MOBILE – CENTRADO + TÍTULO GRANDE
+=========================== */
+@media (max-width: 768px) {
+
+  /* Centrado vertical real */
+  .hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Bloque de texto */
+  .hero-content {
+    position: relative;
+    transform: translateY(0);   /* eliminamos empujes anteriores */
+    margin-top: 0;
+    padding: 0 20px;
+    text-align: center;
+  }
+
+  /* TÍTULO PRINCIPAL */
+  .hero-content .name {
+    font-size: 2.1rem;          /* 👈 AJUSTA AQUÍ */
+    letter-spacing: 0.35rem;
+    margin-bottom: 1.6rem;
+    line-height: 1.05;
+  }
+
+  /* Selectores */
+  .selectors {
+    flex-direction: column;
+    gap: 38px;
+  }
+
+  .selectors .divider {
+    display: none;
+  }
+
+  .selector-label {
+    font-size: 1.05rem;
+    letter-spacing: 0.2rem;
+  }
+
+}

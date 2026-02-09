@@ -1,9 +1,5 @@
 <!DOCTYPE HTML>
-<!--
-	Dimension by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+
 <html>
 	<head>
 		<title>Consultor Oracle HCM</title>
@@ -40,6 +36,23 @@
 						<button type="button" data-link="/index.html">Inicio</button>
 						<button type="button" data-link="/assets/doblaje/index.html">Doblaje</button>
 						<button type="button" data-link="/assets/musica/index.html">Música</button>
+
+						<div class="menu-divider"></div>
+
+						<!-- SECCIONES TECNOLOGÍA -->
+						<button type="button" data-link="/assets/tecnologia/index.html#intro">
+						Bio
+						</button>
+
+						<button type="button" data-link="/assets/tecnologia/index.html#servicios">
+						Servicios
+						</button>
+
+						<button type="button" data-link="/assets/tecnologia/index.html#about">
+						HCM
+						</button>
+
+
 
 						<!-- CONTACTO INTERNO -->
 						<button
@@ -741,25 +754,39 @@ document.addEventListener("DOMContentLoaded", () => {
     overlay.classList.toggle("active");
   });
 
-  overlay.addEventListener("click", (e) => {
-    e.stopPropagation();
+  overlay.addEventListener("click", () => {
     menu.classList.remove("open");
     overlay.classList.remove("active");
   });
 
-menu.querySelectorAll("[data-link]").forEach(item => {
-  item.addEventListener("click", () => {
+  menu.querySelectorAll("[data-link]").forEach(item => {
+    item.addEventListener("click", () => {
 
-    // 1️⃣ cerrar menú y overlay ANTES
-    menu.classList.remove("open");
-    overlay.classList.remove("active");
+      const target = item.dataset.link;
 
-    // 2️⃣ forzar navegación limpia
-    window.location.assign(item.dataset.link);
+      // cerrar menú SIEMPRE
+      menu.classList.remove("open");
+      overlay.classList.remove("active");
+
+      // 🔑 CASO 1: enlaces con hash (#bio, #servicios, etc.)
+      if (target.includes("#")) {
+
+        const hash = target.split("#")[1];
+
+        // si ya estamos en esta página, solo cambiar hash
+        if (window.location.pathname.includes("/assets/tecnologia/index.html")) {
+          window.location.hash = `#${hash}`;
+          return;
+        }
+      }
+
+      // 🔑 CASO 2: navegación normal
+      window.location.href = target;
+    });
   });
-});
 
 });
+
 </script>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
